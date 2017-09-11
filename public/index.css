@@ -1,0 +1,85 @@
+@media screen and (max-device-width: 768px){
+  .menu-btn {
+    visibility: visible;
+  }
+}
+
+@media screen and (min-device-width: 768px){
+  html, body, .grid, .layout-holder, #root, div[data-reactroot] {
+    height:100%;
+  }
+
+  .menu-btn {
+    visibility: hidden;
+  }
+
+  .menu-sidebar {
+    box-shadow: 0 0 20px rgba(39, 41, 43, .15)!important;
+    transform: translate3d(0, 0, 0)!important;
+    visibility: visible!important;
+  }
+
+  #profile-holder, #activity-holder, #quicklinks-holder {
+    padding-top: 60px!important;
+    padding-bottom: 100px!important;
+  }
+}
+
+.menu-btn {
+  position: fixed!important;
+  bottom: 50px;
+  right: 50px;
+  z-index: 100;
+}
+
+.ui.menu .item {
+  font-size: 1.5rem!important;
+}
+
+.ui.icon.menu .item .icon {
+  padding-right: 50px;
+}
+
+.panel-holder {
+  padding: 50px!important;
+}
+
+.panel-holder .personal-info {
+  padding-top:20px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.renew {
+  background: #86E2D5;
+}
+
+#activity-holder {
+  background:#f1f1f1;
+}
+
+#activity-holder .list {
+  margin: 0px -50px 0px -50px!important;
+}
+
+#activity-holder .list .item {
+  padding: 10px 50px 10px 50px;
+  border-radius: 0;
+}
+
+#quicklinks-holder {
+  background: #c1c1c1;
+}
+
+#quicklinks-holder .list {
+  margin: 0px -50px 0px -50px!important;
+}
+
+#quicklinks-holder .list .item {
+  padding: 10px 50px 10px 50px;
+  border-radius: 0;
+}
+
+#quicklinks-holder .list .item : hover {
+  background:#616161;
+}
