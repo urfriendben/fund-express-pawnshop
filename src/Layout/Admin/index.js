@@ -4,7 +4,7 @@ import './index.css';
 
 import Dashboard from './Component/Dashboard';
 
-export default class App extends Component {
+export default class Admin extends Component {
   render() {
     return (
       <div className="layout-holder">

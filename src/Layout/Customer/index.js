@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 
 import Dashboard from './Component/Dashboard';
 
-export default class App extends Component {
+export default class Customer extends Component {
   render() {
     return (
       <div>
