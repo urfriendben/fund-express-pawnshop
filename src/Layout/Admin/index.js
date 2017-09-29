@@ -27,6 +27,7 @@ export default class Admin extends Component {
         <Switch>
           <Route exact path="*" component={Dashboard} />
         </Switch>
+        
       </div>
     );
   }
