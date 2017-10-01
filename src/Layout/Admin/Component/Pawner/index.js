@@ -109,7 +109,7 @@ export default class Pawner extends Component {
 
       <div className="three wide column"></div>
       		<div className="ten wide column">
-      		 <div className="ui stacked segment">
+      		 <div className="ui segment">
       		 <h2 className="ui floated header">New Pawner</h2>
       		  <div class="ui clearing divider"></div>
       			<form className="ui form">
