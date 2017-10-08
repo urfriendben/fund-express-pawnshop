@@ -9,6 +9,7 @@ const hide = {
 };
 
 export default class Pawner extends Component {
+
 	constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -16,18 +17,37 @@ export default class Pawner extends Component {
     this.state = {
       toggle: false
     }
+     this.addRow = this.addRow.bind(this);
+        this.state = {
+          rows: []
+        }
   }
 
   toggle(event) {
     this.setState(prevState => ({
       toggle: !prevState.toggle
+
     }));
   }
-	
+  getInitialState() {
+    return {
+      userInput: ''
+    };
+  }
+	 addRow() {
+        var nextState = this.state;
+        nextState.rows.push('<td>asdasdasdasd</td>');
+        this.setState(nextState);
+        console.log(this.refs.itemName.value)
+        console.log(this.refs.itemWeight.value)
+        console.log(this.refs.itemType.value)
+        console.log(this.refs.itemPrice.value)
+    }
+    
   render() {
   	 var modal = [];
     modal.push(
-    	<div className="ui grid">
+    	<div className="stackable ui grid">
       <div className="modal" style={this.state.toggle ? display : hide}>
       <div className="modal-content">
 
@@ -97,36 +117,127 @@ export default class Pawner extends Component {
         </form>
       </div>
       <div className="modal-footer">
-        <a className="btn" onClick={this.toggle}>Create</a>
+        <a className="btn" onClick={this.onCreate}>Create</a>
         <a className="btn" onClick={this.toggle}>Cancel</a>
       </div>
       </div>
     </div>
     );
     return (
-    
-     <div className="stackable ui grid">
-
+      <div className="stackable ui grid">
       <div className="three wide column"></div>
-      		<div className="ten wide column">
-      		 <div className="ui segment">
-      		 <h2 className="ui floated header">New Pawner</h2>
-      		  <div class="ui clearing divider"></div>
-      			<form className="ui form">
-      				<div className="field">
-					    <label>First Name</label>
-					    <div className="ui action input">
-					    <input type="text" placeholder="name"/>
-					    <a className="ui btn-large" onClick={this.toggle} >ADD</a>
-					    </div>
-					  </div>
-      			</form>
-      			</div>
-      			{modal}
-      		</div>
-      		<div className="three wide column"></div>
-        </div>
+          <div className="ten wide column">
+           <div className="ui segment">
+           <div className="ui top attached large label">New Pawner</div>
+            <div className="ui clearing divider"></div>
+            <form className="ui form">
+              <div className="field">
+              <label>First Name</label>
+              <div className="ui action input">
+              <input type="text" placeholder="name"/>
+              <a className="ui btn-large" onClick={this.toggle} >ADD</a>
+              </div>
+            </div>
+            </form>
+            </div>
+          </div>
+          <div className="three wide column"></div>
+          <div className="three wide column"></div>
+          <div className="ten wide column">
+           <div className="ui segment">
+           <div className="ui top attached large label">General Info</div>
+            <div className="ui clearing divider"></div>
+            <form className="ui form">
+              <div className="field">
+              <label>Pawn Date</label>
+                
+            </div>
+            </form>
+            </div>
+          </div>
+          <div className="three wide column"></div>
+          <div className="three wide column"></div>
+          <div className="ten wide column">
+           <div className="ui segment">
+           <div className="ui top attached large label">Item List</div>
+            <div className="ui clearing divider"></div>
+              <table className="ui compact celled definition table">
+              <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Weight</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                   <tbody>
+                     <tr>
+                    <td className="collapsing">
+                        <div className="ui checkbox">
+                      <input type="checkbox" name="example"/>
+                      <label></label>
+                    </div>
+                    </td>
+                    <td>John Lilki</td>
+                      <td>September 14, 2013</td>
+                      <td>jhlilk22@yahoo.com</td>
+                      <td>No</td>
+                  </tr>
+                  <tr>
+                    <td className="collapsing">
+                        <div className="ui checkbox">
+                      <input type="checkbox" name="example"/>
+                      <label></label>
+                    </div>
+                    </td>
+                    <td>John Lilki</td>
+                      <td>September 14, 2013</td>
+                      <td>jhlilk22@yahoo.com</td>
+                      <td>No</td>
+                  </tr>
+                  <tr>
+                    <td className="collapsing">
+                        <div className="ui checkbox">
+                      <input type="checkbox" name="example"/>
+                      <label></label>
+                    </div>
+                    </td>
+                    <td>John Lilki</td>
+                      <td>September 14, 2013</td>
+                      <td>jhlilk22@yahoo.com</td>
+                      <td>No</td>
+                  </tr>
 
+                  {this.state.rows.map(row => <tr><td>asdasd</td></tr>)}
+                   
+                   </tbody>
+                    <tfoot className="full-width">
+                    <tr>
+                          <th><button className="ui right floated small primary labeled icon button" onClick={this.addRow}>
+                              <i className="plus icon"></i> Add Item
+                            </button></th>
+                          <th>
+                            <td><input type="text" id="itemName" name="name" placeholder="Enter Name"  ref="itemName" /></td>
+                          </th>
+                            <th>
+                            <td><input type="text" id="itemWeight" name="weight" placeholder="Enter Weight" ref="itemWeight" /></td>
+                          </th>
+                          <th>
+                            <td><input type="text" id="itemType" name="type" placeholder="Enter Type" ref="itemType"/></td>
+                          </th>
+                          <th>
+                            <td><input type="text" id="itemPrice" name="price" placeholder="Enter Price" ref="itemPrice" /></td>
+                          </th>
+                        </tr>
+                    </tfoot>
+              </table>
+            </div>
+          </div>
+          {modal}
+          <div className="three wide column"></div>
+
+        </div>
     );
   }
 }
