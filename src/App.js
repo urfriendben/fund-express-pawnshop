@@ -20,8 +20,8 @@ class App extends Component {
             Menu
           </button>
           <Switch>
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/customer" component={Customer} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/customer" component={Customer} />
           </Switch>
         </div>
       </BrowserRouter>

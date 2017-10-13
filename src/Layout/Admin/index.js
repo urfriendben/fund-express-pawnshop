@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import './index.css';
 
 import Dashboard from './Component/Dashboard';
+import Transactions from './Component/Transactions';
 
 export default class Admin extends Component {
   render() {
@@ -25,7 +26,8 @@ export default class Admin extends Component {
           </a>
         </div>
         <Switch>
-          <Route exact path="*" component={Dashboard} />
+          <Route exact path="/admin/transactions" component={Transactions} />
+          <Route path="*" component={Dashboard} />
         </Switch>
       </div>
     );
