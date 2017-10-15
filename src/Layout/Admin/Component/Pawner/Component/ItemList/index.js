@@ -39,15 +39,17 @@ class ItemList extends Component {
               </Table.Header>
               <Table.Body>
                    {this.state.rows.map((data) => {return (
+                     if {data.name} != ''
                      <Table.Row>
                      <Table.Cell><Button basic color='red'>
-                       <Icon name='remove' /> No
+                       <Icon name='remove' /> Remove
                      </Button></Table.Cell>
                      <Table.Cell>{data.name}</Table.Cell>
                      <Table.Cell>{data.weight}</Table.Cell>
                      <Table.Cell>{data.type}</Table.Cell>
                      <Table.Cell>{data.price}</Table.Cell>
-                     </Table.Row>);})}
+                     </Table.Row>}
+                   );})}
               </Table.Body>
               <Table.Footer full-Width>
                 <Table.Row>
