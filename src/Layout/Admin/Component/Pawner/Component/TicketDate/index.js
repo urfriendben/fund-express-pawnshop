@@ -11,18 +11,24 @@ class TicketDate extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      startDate: moment()
+      startDate: moment(),
+      endDate: moment()
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleEndDateChange = this.handleEndDateChange.bind(this);
   }
 
   handleChange(date) {
     this.setState({
       startDate: date
     });
-    console.log(date)
   }
 
+  handleEndDateChange(date) {
+    this.setState({
+      endDate: date
+    });
+  }
   render() {
     return (
       <div>
@@ -32,8 +38,20 @@ class TicketDate extends React.Component {
           </Grid.Column>
           <Grid.Column mobile={48} tablet={16} computer={10}>
           <Segment padded>
-            <label>Start Date</label>
-            <DatePicker selected={this.state.date} onChange={this.handleChange} />
+            <label>Start Date(mm/dd/yyyy)</label>
+            <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleChange }
+                isClearable={true}
+                placeholderText="Please select a date(mm/dd/yyyy)"
+              />
+              <label>Start Date(mm/dd/yyyy)</label>
+              <DatePicker
+                  selected={this.state.endDate}
+                  onChange={this.handleEndDateChange }
+                  isClearable={true}
+                  placeholderText="Please select a date(mm/dd/yyyy)"
+                />
               </Segment>
         </Grid.Column>
         <Grid.Column mobile={16} tablet={8} computer={3}>
