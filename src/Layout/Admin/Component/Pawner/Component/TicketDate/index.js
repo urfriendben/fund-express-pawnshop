@@ -20,6 +20,7 @@ class TicketDate extends React.Component {
     this.setState({
       startDate: date
     });
+    console.log(date)
   }
 
   render() {
@@ -32,12 +33,7 @@ class TicketDate extends React.Component {
           <Grid.Column mobile={48} tablet={16} computer={10}>
           <Segment padded>
             <label>Start Date</label>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.handleChange}
-              showTimeSelect
-
-              dateFormat="LLL" />
+            <DatePicker selected={this.state.date} onChange={this.handleChange} />
               </Segment>
         </Grid.Column>
         <Grid.Column mobile={16} tablet={8} computer={3}>
