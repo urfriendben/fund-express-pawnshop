@@ -2,11 +2,21 @@
   .menu-btn {
     visibility: visible;
   }
+
+  .mobile-hidden {
+    display: none!important;
+  }
 }
 
 @media screen and (min-device-width: 768px){
-  html, body, .grid, .layout-holder, #root, div[data-reactroot] {
+  html, body, #root, div[data-reactroot], .layout-holder {
     height:100%;
+  }
+
+  .layout.grid {
+    height: auto;
+    min-height: 100%;
+    padding-bottom:55px;
   }
 
   .menu-btn {
@@ -23,12 +33,16 @@
     padding-top: 60px!important;
     padding-bottom: 100px!important;
   }
+
+  .desktop-hidden {
+    display: none!important;
+  }
 }
 
 .menu-btn {
   position: fixed!important;
-  bottom: 50px;
-  right: 50px;
+  bottom: 10px;
+  right: 10px;
   z-index: 100;
 }
 
@@ -54,33 +68,52 @@
   background: #86E2D5;
 }
 
+.active {
+  background: #c1c1c1;
+}
+
 .alert {
   background: #F1A9A0;
 }
 
-#activity-holder {
-  background:#f1f1f1;
+.clear-horizontal-padding {
+  padding-left:0px!important;
+  padding-right:0px!important;
 }
 
-#activity-holder .list {
+.clear-horizontal-padding-right {
+  padding-right:0px!important;
+}
+
+.clear-horizontal-margin {
+  margin-left:0px!important;
+  margin-right:0px!important;
+}
+
+.clear-vertical-padding {
+  padding-top:0px!important;
+  padding-bottom:0px!important;
+}
+
+.clear-vertical-margin {
+  margin-top:0px!important;
+  margin-bottom:0px!important;
+}
+
+.second-panel, .alternating {
+  background:#f1f1f1!important;
+}
+
+.third-panel {
+  background: #c1c1c1!important;
+}
+
+.list-holder .list {
   margin: 0px -50px 0px -50px!important;
 }
 
-#activity-holder .list .item {
-  padding: 10px 50px 10px 50px;
-  border-radius: 0;
-}
-
-#quicklinks-holder {
-  background: #c1c1c1;
-}
-
-#quicklinks-holder .list {
-  margin: 0px -50px 0px -50px!important;
-}
-
-#quicklinks-holder .list .item {
-  padding: 10px 50px 10px 50px;
+.list-holder .list .item {
+  padding: 10px 10% 10px 10%!important;
   border-radius: 0;
 }
 

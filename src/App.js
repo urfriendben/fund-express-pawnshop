@@ -8,7 +8,7 @@ import Customer from './Layout/Customer';
 class App extends Component {
   constructor() {
     super();
-    //this.state({});
+    //this.state = {};
   }
 
   render() {
