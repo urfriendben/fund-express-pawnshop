@@ -8,7 +8,7 @@ import Customer from './Layout/Customer';
 class App extends Component {
   constructor() {
     super();
-    //this.state({});
+    //this.state = {};
   }
 
   render() {
@@ -20,8 +20,8 @@ class App extends Component {
             Menu
           </button>
           <Switch>
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/customer" component={Customer} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/customer" component={Customer} />
           </Switch>
         </div>
       </BrowserRouter>

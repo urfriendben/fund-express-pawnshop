@@ -4,6 +4,9 @@ import './index.css';
 
 import Dashboard from './Component/Dashboard';
 import Pawner from './Component/Pawner';
+import Transactions from './Component/Transactions';
+import Customers from './Component/Customers';
+
 export default class Admin extends Component {
 
   render() {
@@ -26,8 +29,10 @@ export default class Admin extends Component {
         </a>
       </div>
         <Switch>
-          <Route exact path="/new" component={Dashboard} />
-          <Route exact path="" component={Pawner} />
+          <Route exact path="/admin/transactions" component={Transactions} />
+          <Route exact path="/admin/customers" component={Customers} />
+          <Route exact path="/admin/pawner" component={Pawner} />
+          <Route path="*" component={Dashboard} />
         </Switch>
 
       </div>
