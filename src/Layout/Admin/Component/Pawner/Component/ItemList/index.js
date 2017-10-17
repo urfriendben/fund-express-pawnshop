@@ -23,9 +23,9 @@ class ItemList extends Component {
     return (
       <div>
         <Grid>
-          <Grid.Column mobile={16} tablet={8} computer={3}>
+          <Grid.Column mobile={16} tablet={8} computer={1}>
           </Grid.Column>
-          <Grid.Column mobile={48} tablet={16} computer={10}>
+          <Grid.Column mobile={48} tablet={16} computer={14}>
           <Table celled striped>
               <Table.Header>
               <Table.Row>
@@ -71,7 +71,7 @@ class ItemList extends Component {
               </Table.Footer>
             </Table>
           </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={3}>
+          <Grid.Column mobile={16} tablet={8} computer={1}>
           </Grid.Column>
         </Grid>
 
