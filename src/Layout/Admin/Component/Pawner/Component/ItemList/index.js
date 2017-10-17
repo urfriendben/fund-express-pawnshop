@@ -24,7 +24,6 @@ class ItemList extends Component {
       <div>
         <Grid>
           <Grid.Column mobile={16} tablet={8} computer={3}>
-            space1
           </Grid.Column>
           <Grid.Column mobile={48} tablet={16} computer={10}>
           <Table celled striped>
@@ -73,7 +72,6 @@ class ItemList extends Component {
             </Table>
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={3}>
-            space 2
           </Grid.Column>
         </Grid>
 

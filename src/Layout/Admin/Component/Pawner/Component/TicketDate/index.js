@@ -34,7 +34,6 @@ class TicketDate extends React.Component {
       <div>
         <Grid>
           <Grid.Column mobile={16} tablet={8} computer={3}>
-            space1
           </Grid.Column>
           <Grid.Column mobile={48} tablet={16} computer={10}>
           <Segment padded>
@@ -65,7 +64,6 @@ class TicketDate extends React.Component {
               </Segment>
         </Grid.Column>
         <Grid.Column mobile={16} tablet={8} computer={3}>
-          space 2
         </Grid.Column>
         </Grid>
 
