@@ -8,7 +8,7 @@ class ItemList extends Component {
     super(props);
     this.state = {
       toggle: false,
-      rows: [{name:"",weight:"",type:"",price:""}]
+      rows: []
     }
      this.addRow = this.addRow.bind(this);
   }
@@ -31,10 +31,10 @@ class ItemList extends Component {
               <Table.Header>
               <Table.Row>
                 <Table.HeaderCell >Remove/Add Item</Table.HeaderCell>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Weight</Table.HeaderCell>
-                <Table.HeaderCell>Type</Table.HeaderCell>
-                <Table.HeaderCell>Price</Table.HeaderCell>
+                <Table.HeaderCell>Pawn Item Name</Table.HeaderCell>
+                <Table.HeaderCell>Pawn Item Weight</Table.HeaderCell>
+                <Table.HeaderCell>Pawn Item Type</Table.HeaderCell>
+                <Table.HeaderCell>Pawn Item Price</Table.HeaderCell>
               </Table.Row>
               </Table.Header>
               <Table.Body>
@@ -42,7 +42,7 @@ class ItemList extends Component {
 
                      <Table.Row>
                      <Table.Cell><Button basic color='red'>
-                       <Icon name='remove' /> Remove
+                       <Icon name='remove'/> Remove
                      </Button></Table.Cell>
                      <Table.Cell>{data.name}</Table.Cell>
                      <Table.Cell>{data.weight}</Table.Cell>
@@ -54,19 +54,19 @@ class ItemList extends Component {
               <Table.Footer full-Width>
                 <Table.Row>
                 <Table.Cell>
-                   <Button primary size='mid' onClick={this.addRow} >ADD</Button>
+                   <Button primary fluid onClick={this.addRow} >ADD</Button>
                  </Table.Cell>
                 <Table.Cell>
-                    <Input focus ref={input => this.itemName = input} placeholder='Enter Item Name' />
+                    <Input focus fluid ref={input => this.itemName = input} placeholder='Enter Item Name' />
                  </Table.Cell>
                  <Table.Cell>
-                    <Input focus  ref={input => this.itemWeight = input} placeholder='Enter Item Weight' />
+                    <Input focus  fluid ref={input => this.itemWeight = input} placeholder='Enter Item Weight' />
                   </Table.Cell>
                   <Table.Cell>
-                     <Input focus  ref={input => this.itemType = input} placeholder='Enter Item Type' />
+                     <Input focus  fluid ref={input => this.itemType = input} placeholder='Enter Item Type' />
                    </Table.Cell>
                    <Table.Cell>
-                    <Input focus ref={input => this.itemPrice = input} placeholder='Enter Item Price' />
+                    <Input focus fluid ref={input => this.itemPrice = input} placeholder='Enter Item Price' />
                   </Table.Cell>
                 </Table.Row>
               </Table.Footer>
