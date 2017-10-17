@@ -38,20 +38,30 @@ class TicketDate extends React.Component {
           </Grid.Column>
           <Grid.Column mobile={48} tablet={16} computer={10}>
           <Segment padded>
-            <label>Start Date(mm/dd/yyyy)</label>
-            <DatePicker
-                selected={this.state.startDate}
-                onChange={this.handleChange }
-                isClearable={true}
-                placeholderText="Please select a date(mm/dd/yyyy)"
-              />
-              <label>Start Date(mm/dd/yyyy)</label>
-              <DatePicker
-                  selected={this.state.endDate}
-                  onChange={this.handleEndDateChange }
-                  isClearable={true}
-                  placeholderText="Please select a date(mm/dd/yyyy)"
-                />
+            <Grid columns="4">
+              <Grid.Column>
+              </Grid.Column>
+              <Grid.Column>
+              </Grid.Column>
+              <Grid.Column>
+                <label>Start Date(mm/dd/yyyy)</label>
+                <DatePicker
+                    selected={this.state.startDate}
+                    onChange={this.handleChange }
+                    isClearable={true}
+                    placeholderText="Please select a date(mm/dd/yyyy)"
+                  />
+                </Grid.Column>
+                <Grid.Column>
+                  <label>Expiry Date(mm/dd/yyyy)</label>
+                  <DatePicker
+                      selected={this.state.endDate}
+                      onChange={this.handleEndDateChange }
+                      isClearable={true}
+                      placeholderText="Please select a date(mm/dd/yyyy)"
+                    />
+                  </Grid.Column>
+                </Grid>
               </Segment>
         </Grid.Column>
         <Grid.Column mobile={16} tablet={8} computer={3}>
