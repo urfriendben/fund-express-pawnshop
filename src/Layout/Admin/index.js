@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
-import './index.css';
 
 import Dashboard from './Component/Dashboard';
 import Transactions from './Component/Transactions';
@@ -11,25 +10,25 @@ export default class Admin extends Component {
     return (
       <div className="layout-holder">
         <div className="ui menu-sidebar sidebar stackable bottom four item labelled icon menu">
-          <div className="item">
-          </div>
-          <a className="item">
+          <Link as="a" to="/admin" className="item">
+          </Link>
+          <Link as="a" to="/admin/customers" className="item">
             <i className="id badge icon"></i>
             CUSTOMERS
-          </a>
-          <a className="item">
+          </Link>
+          <Link as="a" to="/admin/transactions" className="item">
             <i className="id tasks icon"></i>
             TRANSACTIONS
-          </a>
-          <a className="item">
+          </Link>
+          <Link as="a" to="/admin/customers"a className="item">
             <i className="bar chart icon"></i>
             ANALYTICS
-          </a>
+          </Link>
         </div>
         <Switch>
           <Route exact path="/admin/transactions" component={Transactions} />
           <Route exact path="/admin/customers" component={Customers} />
-          <Route path="*" component={Dashboard} />
+          <Route path="/admin" component={Dashboard} />
         </Switch>
       </div>
     );

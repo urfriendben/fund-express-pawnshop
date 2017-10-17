@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Modal, Image } from 'semantic-ui-react';
 
 export default class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {renew_count:0};
+  }
+
   render() {
     return (
       <div className="ui stackable grid layout">
@@ -12,36 +17,52 @@ export default class Dashboard extends Component {
         <div id="activity-holder" className="six wide column panel-holder second-panel list-holder">
           <div id="alert-holder">
             <h1 className="ui header red">Alert Issue(s)</h1>
-            <div className="ui list">
-              <div className="item alert">
-                <img className="ui middle aligned avatar image" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
-                <div className="content">
-                  <a className="header">Rachel</a>
-                  <div className="description">Transaction <a><b>00704323</b></a> overdue for 1 day.</div>
+            {[...Array(3)].map((x,i) => {
+              return(
+                <div className="ui list">
+                  <div className={i % 2 == 0 ? "item alert" : "item alert-alt"}>
+                    <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
+                    <div className="content">
+                      <a className="header"><b>00704323</b></a>
+                      <div className="description">Transaction overdue for 1 day.</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
             <br/>
           </div>
           <div id="recent-holder">
             <br/>
             <h1 className="ui header">Recent activity</h1>
-            <div className="ui list">
-              <div className="item">
-                <img className="ui middle aligned avatar image" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
-                <div className="content">
-                  <a className="header">Rachel</a>
-                  <div className="description">Pawned transaction <a><b>0010323</b></a> just now.</div>
+            {[...Array(3)].map((x,i) => {
+              return(
+                <div className="ui list">
+                  <div className="item renew"> {/*&& check for x.renew "item renew"*/}
+                    <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
+                    <div className="content">
+                      <a className="header"><b>0010323</b></a>
+                      <div className="description">Expiring in 3 days.</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="item renew">
-                <img className="ui middle aligned avatar image" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
-                <div className="content">
-                    <a className="header">David</a>
-                  <div className="description">Renewed transaction <a><b>0583483</b></a> 10 hours ago</div>
+              );
+              {/*if(x.renew)*/}
+              this.setState({renew_count:this.state.renew_count+1});
+            })}
+            {[...Array(3)].map((x,i) => {
+              return(
+                <div className="ui list">
+                  <div className="item">
+                    <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
+                    <div className="content">
+                      <a className="header"><b>0010323</b></a>
+                      <div className="description">Renewal confirmed 1 day ago.</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
         <div id="quicklinks-holder" className="six wide column panel-holder third-panel list-holder">

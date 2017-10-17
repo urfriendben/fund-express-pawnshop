@@ -13,7 +13,7 @@ export default class Customers extends Component {
       <Item className={this.state.transaction == i ? "active" : null} onClick={() => {this.setState({transaction:i})}}>
         <Grid>
           <Grid.Column verticalAlign="middle">
-            <Image size="tiny" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
+            <Image size="tiny" circular src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
           </Grid.Column>
           <Grid.Column width="13" verticalAlign="middle">
             <a className="header">Rachel</a>

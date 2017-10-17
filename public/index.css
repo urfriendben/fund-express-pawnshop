@@ -68,12 +68,20 @@
   background: #86E2D5;
 }
 
-.active {
+.renew-alt {
+  background: #A8F4F7;
+}
+
+.list .active {
   background: #c1c1c1;
 }
 
 .alert {
   background: #F1A9A0;
+}
+
+.alert-alt {
+  background: #F3BBC2;
 }
 
 .clear-horizontal-padding {

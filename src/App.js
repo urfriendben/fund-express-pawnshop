@@ -21,7 +21,7 @@ class App extends Component {
           </button>
           <Switch>
             <Route path="/admin" component={Admin} />
-            <Route path="/customer" component={Customer} />
+            <Route path="/cust" component={Customer} />
           </Switch>
         </div>
       </BrowserRouter>
