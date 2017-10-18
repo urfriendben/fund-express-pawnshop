@@ -13,7 +13,7 @@ export default class Transactions extends Component {
     style += (i % 2 == 0 && this.state.transaction_num != i ? " renew" : "");
     style += (i % 3 == 0 && this.state.transaction_num != i ? " alert" : "");
     return(
-      <div className={style} onClick={() => {this.setState({transaction_num:i,transaction_item_num:0,transaction:{id:"0010323"}})}}>
+      <div className={style} onClick={() => {this.setState({transaction_num:i,transaction_item_num:0,transaction:{id:"0010323"},renew:0})}}>
         <div className="content">
           <a className="header"><b>0010323</b></a>
           <div className="description">Pawned transaction just now.</div>
@@ -87,7 +87,20 @@ export default class Transactions extends Component {
               </Grid.Row>
               <Grid.Row>
                 <Grid.Column>
-                  <Button floated="right" color="teal" content="Renew"/>
+                  <Accordion fluid styled>
+                    <Accordion.Title active={this.state.renew === 1} index={0} onClick={() => {this.setState({renew:(this.state.renew + 1) % 2})}}>
+                      Renew transaction now?
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.renew === 1}>
+                      <Grid>
+                        <Grid.Row>
+                          <Grid.Column>
+                            <Button floated="right" color="teal" content="Renew"/>
+                          </Grid.Column>
+                        </Grid.Row>
+                      </Grid>
+                    </Accordion.Content>
+                  </Accordion>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

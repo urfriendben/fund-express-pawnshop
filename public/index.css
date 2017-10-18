@@ -72,7 +72,7 @@
   background: #A8F4F7;
 }
 
-.list .active {
+.list div.active {
   background: #c1c1c1;
 }
 
