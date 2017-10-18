@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Step} from 'semantic-ui-react';
-import { StickyContainer, Sticky } from 'react-sticky';
+import { Button, Icon, Step,Sticky} from 'semantic-ui-react';
 import NewCustomer from './Component/NewCustomer';
 import ItemList from './Component/ItemList';
 import DatePicker from './Component/TicketDate';
@@ -9,8 +8,13 @@ import scrollToComponent from 'react-scroll-to-component';
 
 
 export default class NewTicket extends Component {
-  render() {
+  state = { active: true }
 
+  handleContextRef = contextRef => this.setState({ contextRef })
+
+  handleToggle = () => this.setState({ active: !this.state.active })
+  render() {
+    const { active, contextRef } = this.state
     return (
       <div className="ui stackable grid layout">
         <div className="ten wide column first-panel list-holder clear-horizontal-padding-right">
@@ -19,21 +23,11 @@ export default class NewTicket extends Component {
           <ItemList className="ItemList" ref={(section) => { this.ItemList = section; }}/>
 
         </div>
-        <StickyContainer>
-            <Sticky>
-              {
-                ({
-                  style,
-                  isSticky,
-                  wasSticky,
-                  distanceFromTop,
-                  distanceFromBottom,
-                  calculatedHeight
-                }) => {
-                  return (
-                  <div className="six wide column third-panel mobile-hidden">
+        <div className="six wide column third-panel mobile-hidden" ref={this.handleContextRef}>
+        <Sticky context={contextRef}>
 
-                                     <Step.Group vertical style={style} >
+
+                                     <Step.Group vertical>
                                         <Step  onClick={() => scrollToComponent(this.NewCustomer, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
                                           <Icon name='user' />
                                           <Step.Content>
@@ -56,12 +50,9 @@ export default class NewTicket extends Component {
                                           </Step.Content>
                                         </Step>
                                         </Step.Group>
-                    </div>
-                  )
-                }
-              }
-            </Sticky>
-            </StickyContainer>
+
+                </Sticky>
+                </div>
       </div>
     );
   }
