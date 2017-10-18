@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Step} from 'semantic-ui-react';
+import { StickyContainer, Sticky } from 'react-sticky';
 import NewCustomer from './Component/NewCustomer';
 import ItemList from './Component/ItemList';
 import DatePicker from './Component/TicketDate';
@@ -18,32 +19,49 @@ export default class NewTicket extends Component {
           <ItemList className="ItemList" ref={(section) => { this.ItemList = section; }}/>
 
         </div>
-        <div className="six wide column third-panel mobile-hidden">
-         <Button fluid animated='fade' onClick={() => scrollToComponent(this.NewCustomer, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
-            <Button.Content visible>
-              Customer
-              </Button.Content>
-              <Button.Content hidden>
-                Move to Customer detail
-              </Button.Content>
-         </Button>
-         <Button fluid animated='fade' onClick={() => scrollToComponent(this.DatePicker, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
-            <Button.Content visible>
-              Ticket Date
-              </Button.Content>
-              <Button.Content hidden>
-                Move to Ticket Date details
-              </Button.Content>
-         </Button>
-         <Button fluid animated='fade' onClick={() => scrollToComponent(this.ItemList, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
-            <Button.Content visible>
-              ItemList
-              </Button.Content>
-              <Button.Content hidden>
-                Move to item table
-              </Button.Content>
-         </Button>
-        </div>
+        <StickyContainer>
+            <Sticky>
+              {
+                ({
+                  style,
+                  isSticky,
+                  wasSticky,
+                  distanceFromTop,
+                  distanceFromBottom,
+                  calculatedHeight
+                }) => {
+                  return (
+                  <div className="six wide column third-panel mobile-hidden">
+
+                                     <Step.Group vertical style={style} >
+                                        <Step  onClick={() => scrollToComponent(this.NewCustomer, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
+                                          <Icon name='user' />
+                                          <Step.Content>
+                                            <Step.Title>Customer</Step.Title>
+                                            <Step.Description>Move to Customer Section</Step.Description>
+                                          </Step.Content>
+                                        </Step>
+                                        <Step  onClick={() => scrollToComponent(this.DatePicker, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})} >
+                                          <Icon name='calendar' />
+                                          <Step.Content>
+                                            <Step.Title>Ticket Date</Step.Title>
+                                            <Step.Description>Start & Expiry Date of ticket</Step.Description>
+                                          </Step.Content>
+                                        </Step>
+                                        <Step onClick={() => scrollToComponent(this.ItemList, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>
+                                          <Icon name='unordered list' />
+                                          <Step.Content>
+                                            <Step.Title>Item List</Step.Title>
+                                            <Step.Description>List of item for pawn</Step.Description>
+                                          </Step.Content>
+                                        </Step>
+                                        </Step.Group>
+                    </div>
+                  )
+                }
+              }
+            </Sticky>
+            </StickyContainer>
       </div>
     );
   }
