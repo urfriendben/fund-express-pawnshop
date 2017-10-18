@@ -19,7 +19,7 @@ export default class Dashboard extends Component {
             <h1 className="ui header red">Alert Issue(s)</h1>
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className={i % 2 == 0 ? "item alert" : "item alert-alt"}>
                     <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
                     <div className="content">
@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
             <h1 className="ui header">Recent activity</h1>
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className="item renew"> {/*&& check for x.renew "item renew"*/}
                     <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
                     <div className="content">
@@ -52,7 +52,7 @@ export default class Dashboard extends Component {
             })}
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className="item">
                     <Image size="mini" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
                     <div className="content">

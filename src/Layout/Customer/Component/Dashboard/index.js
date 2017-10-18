@@ -6,7 +6,7 @@ export default class Dashboard extends Component {
     return (
       <div className="ui stackable grid layout">
         <div id="profile-holder" className="four wide column panel-holder first-panel">
-          <div><Image size="medium" circular src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/></div>
+          <div><Image size="medium" shape="circular" src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/></div>
           <p className="personal-info">Hi! Welcome back Alvin</p>
         </div>
         <div id="activity-holder" className="six wide column panel-holder second-panel list-holder">
@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
             <h1 className="ui header red">Alert Issue(s)</h1>
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className={i % 2 == 0 ? "item alert" : "item alert-alt"}>
                     <div className="content">
                       <a className="header"><b>00704323</b></a>
@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
             <h1 className="ui header">Renewal(s)</h1>
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className={i % 2 == 0 ? "item renew" : "item renew-alt"}>
                     <div className="content">
                       <a className="header"><b>0010323</b></a>
@@ -48,7 +48,7 @@ export default class Dashboard extends Component {
           <div id="recent-holder">
             {[...Array(3)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <div className="item">
                     <div className="content">
                       <a className="header"><b>0010323</b></a>

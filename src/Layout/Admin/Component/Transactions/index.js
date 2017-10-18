@@ -38,7 +38,7 @@ export default class Transactions extends Component {
           <div>
             {[...Array(10)].map((x,i) => {
               return(
-                <div className="ui list">
+                <div key={i} className="ui list">
                   <MediaQuery maxDeviceWidth={768}>
                     <Modal trigger={this.row(x,i)} closeIcon>
                       <Header content="#transaction"/>
@@ -46,7 +46,6 @@ export default class Transactions extends Component {
                         {/* Copy right bar code for display*/}
                       </Modal.Content>
                       <Modal.Actions>
-                        <Button color="green">Renew</Button>
                       </Modal.Actions>
                     </Modal>
                   </MediaQuery>
@@ -74,7 +73,7 @@ export default class Transactions extends Component {
                   <Accordion fluid styled>
                     {[...Array(5)].map((x,i) => {
                       return(
-                        <div>
+                        <div key={i}>
                           <Accordion.Title active={this.state.transaction_item_num === i} index={i} onClick={() => {this.setState({transaction_item_num:i})}}>
                             item {i}
                           </Accordion.Title>

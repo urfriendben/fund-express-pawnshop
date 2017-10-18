@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Segment, Modal, Header, Item, Button, Image, Label } from 'semantic-ui-react';
+import { Grid, Segment, Modal, Accordion, Header, Item, Button, Image, Label } from 'semantic-ui-react';
 import MediaQuery from 'react-responsive';
 
 export default class Customers extends Component {
@@ -9,8 +9,9 @@ export default class Customers extends Component {
   }
 
   row = (x,i) => {
+    var style = this.state.customer_num == i ? "active" : null;
     return(
-      <Item className={this.state.transaction == i ? "active" : null} onClick={() => {this.setState({transaction:i})}}>
+      <Item className={style} onClick={() => {this.setState({customer_num:i,customer_info_num:0,customer:{name:"test",tel:"93945954",mail:"test@email.com"}})}}>
         <Grid>
           <Grid.Column verticalAlign="middle">
             <Image size="tiny" circular src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png"/>
@@ -34,24 +35,17 @@ export default class Customers extends Component {
       <div className="ui stackable grid layout">
         <div className="ten wide column first-panel list-holder clear-horizontal-padding-right">
           <Segment basic className="second-panel clear-vertical-margin">
-            <Button.Group>
-              <Button onClick={() => {this.setState({today:!this.state.today})}}>{this.state.today ? "Today" : "This Week"}</Button>
-              <Button.Or text=""/>
-              <Button onClick={() => {this.state.standard ? this.setState({critical:true}) : null;this.setState({standard:!this.state.standard})}} color={this.state.standard ? "blue" : null}>Standard</Button>
-              <Button onClick={() => {this.state.critical ? this.setState({standard:true}) : null;this.setState({critical:!this.state.critical})}} color={this.state.critical ? "orange" : null}>Critical</Button>
-            </Button.Group>
           </Segment>
           <div>
             {[...Array(20)].map((x,i) => {
               return(
-                <div className={i % 2 == 0 ? "ui list" : "ui list alternating"}>
+                <div key={i} className={i % 2 == 0 ? "ui list" : "ui list alternating"}>
                   <MediaQuery maxDeviceWidth={768}>
                     <Modal trigger={this.row(x,i)} closeIcon>
-                      <Header content="#transaction"/>
+                      <Header content="#customer"/>
                       <Modal.Content>
                       </Modal.Content>
                       <Modal.Actions>
-                        <Button color="green">Renew</Button>
                       </Modal.Actions>
                     </Modal>
                   </MediaQuery>
@@ -63,7 +57,33 @@ export default class Customers extends Component {
             })}
           </div>
         </div>
-        <div className="six wide column third-panel mobile-hidden">
+        <div className="six wide column panel-holder list-holder inverted third-panel mobile-hidden">
+          {this.state.customer != undefined ?
+            <Grid columns="1">
+              <Grid.Row>
+                <Grid.Column>
+                  <Header floated="left" content={this.state.customer.name}/>
+                  <Header sub floated="right">
+                    created: 01/01/17<br/>updated: 02/01/17
+                  </Header>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row>
+                <Grid.Column>
+                  <Accordion fluid styled>
+                    <Accordion.Title active={this.state.customer_info_num === 0} index={0} onClick={() => {this.setState({customer_info_num:0})}}>
+                      Contact Info
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.customer_info_num === 0}>
+                      <a href={"tel:+65" + this.state.customer.tel}>{this.state.customer.tel}</a>
+                      <br/>
+                      <a href={"mailto:" + this.state.customer.mail}>{this.state.customer.mail}</a>
+                    </Accordion.Content>
+                  </Accordion>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          : null}
         </div>
       </div>
     );

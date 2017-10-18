@@ -10,17 +10,17 @@ export default class Admin extends Component {
     return (
       <div className="layout-holder">
         <div className="ui menu-sidebar sidebar stackable bottom four item labelled icon menu">
-          <Link as="a" to="/admin" className="item">
+          <Link to="/admin" className="item">
           </Link>
-          <Link as="a" to="/admin/customers" className="item">
+          <Link to="/admin/customers" className="item">
             <i className="id badge icon"></i>
             CUSTOMERS
           </Link>
-          <Link as="a" to="/admin/transactions" className="item">
+          <Link to="/admin/transactions" className="item">
             <i className="id tasks icon"></i>
             TRANSACTIONS
           </Link>
-          <Link as="a" to="/admin/customers"a className="item">
+          <Link to="/admin/customers" className="item">
             <i className="bar chart icon"></i>
             ANALYTICS
           </Link>
