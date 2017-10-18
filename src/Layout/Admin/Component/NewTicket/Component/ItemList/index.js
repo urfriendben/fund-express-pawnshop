@@ -12,7 +12,13 @@ class ItemList extends Component {
     }
      this.addRow = this.addRow.bind(this);
   }
-
+  removeRow(data){
+      const newState = this.state.rows;
+      if(newState.indexOf(data) > -1){
+        newState.splice(newState.indexOf(data),1);
+        this.setState({data:newState})
+      }
+  }
   addRow(){
      var rows = this.state.rows;
      rows.push({name:this.itemName.inputRef.value,weight:this.itemWeight.inputRef.value,type:this.itemType.inputRef.value,price:this.itemPrice.inputRef.value});
@@ -37,10 +43,10 @@ class ItemList extends Component {
               </Table.Row>
               </Table.Header>
               <Table.Body>
-                   {this.state.rows.map((data) => {return (
+                   {this.state.rows.map((data,index) => {return (
 
-                     <Table.Row>
-                     <Table.Cell><Button basic color='red'>
+                     <Table.Row key={index}>
+                     <Table.Cell><Button basic color='red' fluid onClick={this.removeRow.bind(this,data)}>
                        <Icon name='remove'/> Remove
                      </Button></Table.Cell>
                      <Table.Cell>{data.name}</Table.Cell>
