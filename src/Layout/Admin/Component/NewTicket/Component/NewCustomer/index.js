@@ -3,7 +3,7 @@ import { Grid, Segment, Image, Form,Button, Header, Modal, Icon,Input, Dropdown,
 const stateOptions = [ { key: 'AL', value: 'AL', text: 'Alabama' }]
 const raceOptions = [ { key: 'CH', value: 'chinese', text: 'CHINESE' },{ key: 'IN', value: 'indian', text: 'INDIAN' },{ key: 'EU', value: 'eurasian', text: 'EURASIAN' },{ key: 'MY', value: 'malay', text: 'MALAY' }]
 const sexOptions = [ { key: 'm', value: 'male', text: 'MALE' },{ key: 'f', value: 'female', text: 'FEMALE' }]
-class NewPawner extends Component {
+class NewCustomer extends Component {
   state = { open: false }
 
   show = dimmer => () => this.setState({ dimmer, open: true })
@@ -28,7 +28,7 @@ class NewPawner extends Component {
               <Button primary onClick={this.show(true)}>New Pawner</Button>
               <Button >Search Pawner</Button>
               <Modal  dimmer={dimmer} open={open} onClose={this.close}>
-                  <Header content='New Add Pawner' />
+                  <Header content='New Add Customer' />
                   <Modal.Content>
                    <Form>
                      <Form.Input label='Pawner Nric' type='nric' placeholder='Enter Pawner nric' />
@@ -64,4 +64,4 @@ class NewPawner extends Component {
   }
 }
 
-export default NewPawner
+export default NewCustomer

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import './index.css';
 
 import Dashboard from './Component/Dashboard';
-import Pawner from './Component/Pawner';
+import NewTicket from './Component/NewTicket';
 import Transactions from './Component/Transactions';
 import Customers from './Component/Customers';
 
@@ -31,7 +31,7 @@ export default class Admin extends Component {
         <Switch>
           <Route exact path="/admin/transactions" component={Transactions} />
           <Route exact path="/admin/customers" component={Customers} />
-          <Route exact path="/admin/pawner" component={Pawner} />
+          <Route exact path="/admin/newticket" component={NewTicket} />
           <Route path="*" component={Dashboard} />
         </Switch>
 

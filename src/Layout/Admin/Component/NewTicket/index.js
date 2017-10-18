@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import NewPawner from './Component/NewPawner';
+import NewCustomer from './Component/NewCustomer';
 import ItemList from './Component/ItemList';
 import DatePicker from './Component/TicketDate';
-export default class Pawner extends Component {
+export default class NewTicket extends Component {
   render() {
 
     return (
       <div className="ui stackable grid layout">
         <div className="ten wide column first-panel list-holder clear-horizontal-padding-right">
-          <NewPawner/>
+          <NewCustomer/>
           <DatePicker/>
           <ItemList/>
         </div>
